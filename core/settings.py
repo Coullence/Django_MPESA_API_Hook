@@ -25,7 +25,7 @@ SECRET_KEY = 'e9pitf-t(z+$t$8zg2o&y@b4k^v_g-@z7fdt^8ivqlqw@_ra%l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','5d41213b93a8.ngrok.io','young-refuge-80064.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','5d41213b93a8.ngrok.io','https://young-refuge-80064.herokuapp.com']
 
 
 # Application definition
@@ -121,14 +121,4 @@ USE_TZ = True
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
