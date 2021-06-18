@@ -62,19 +62,33 @@ def call_back(request):
     mpesa_body =request.body.decode('utf-8')
     mpesa_payment = json.loads(mpesa_body)
     
-    
-    
     print (mpesa_payment)
     
-    # { "Body":       
-    #     { "CallbackMetadata":  {            
-    #         "Item": [                    
-    #             { "Name":"Amount", "Value":10},                    
-    #             { "Name":"MpesaReceiptNumber",    "Value":"MRLSJHDH9" }
-    #             ]
-    #         }
-    #      }
-    # }
+    Amount = mpesa_payment.Body.stkCallback.callbackMetadata.Item.Amount.Value
+    PhoneNumber = mpesa_payment.Body.stkCallback.callbackMetadata.Item.PhoneNumber.Value
+    
+    print ("The Amount".Amount)
+    print ("The Phone Number".PhoneNumber)
+    
+    
+#    {'Body': 
+#        {'stkCallback': 
+#            {'MerchantRequestID': '7458-11137033-1', 
+#             'CheckoutRequestID': 'ws_CO_180620211648213536', 
+#             'ResultCode': 0, 
+#             'ResultDesc': 'The service request is processed successfully.', 
+#             'CallbackMetadata': 
+#                 {'Item': [
+#                     {'Name': 'Amount', 'Value': 1.0}, 
+#                     {'Name': 'MpesaReceiptNumber', 'Value': 'PFI0AO4WHS'}, 
+#                     {'Name': 'Balance'}, 
+#                     {'Name': 'TransactionDate', 'Value': 20210618164834}, 
+#                     {'Name': 'PhoneNumber', 'Value': 254726634786}
+#                     ]
+#                  }
+#                 }
+#            }
+#        }
 
     # payment = MpesaPayment(
     #     first_name=mpesa_payment['FirstName'],
