@@ -62,7 +62,13 @@ def call_back(request):
     mpesa_body =request.body.decode('utf-8')
     mpesa_payment = json.loads(mpesa_body)
     
-    print (mpesa_payment)
+    print (mpesa_payment)  
+    
+    print ("Hey its here now")
+
+    print (mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'])
+    print (mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value'])
+    print (mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'])
     
     
     # Amount = mpesa_payment['Amount']
@@ -94,11 +100,6 @@ def call_back(request):
 #            }
 #        }
 
-print ("Hey its here now")
-
-print (mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'])
-print (mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value'])
-print (mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'])
 
 
     # payment = STKPayment(
