@@ -64,8 +64,10 @@ def call_back(request):
     
     print (mpesa_payment)
     
-    Amount = mpesa_payment.Body.stkCallback.callbackMetadata.Item.Amount.Value
-    PhoneNumber = mpesa_payment.Body.stkCallback.callbackMetadata.Item.PhoneNumber.Value
+    first_name=mpesa_payment['FirstName'],
+    
+    Amount = mpesa_payment['Amount']
+    PhoneNumber = mpesa_payment['PhoneNumber']
     
     print ("The Amount".Amount)
     print ("The Phone Number".PhoneNumber)
