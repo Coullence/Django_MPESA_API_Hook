@@ -53,8 +53,9 @@ class MpesaPayment(BaseModel):
     
 class STKPayment(BaseModel):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
+    transaction_code = models.TextField()
     phone_number = models.TextField()    
-    transaction_Code = models.TextField()
+    
 
     class Meta:
         verbose_name = 'STK Payment'
