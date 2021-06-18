@@ -62,6 +62,8 @@ def call_back(request):
     mpesa_body =request.body.decode('utf-8')
     mpesa_payment = json.loads(mpesa_body)
     
+    
+    
     print (mpesa_payment)
     
     # { "Body":       
@@ -93,7 +95,13 @@ def call_back(request):
         "ResultDesc": "Accepted"
     }
     
+    print("hey its is here ********************newenneen************ ")
+    
+    print(response.text.encode('utf8'))
+    
     print("hey its is here ******************************** ")
+    
+    
 
     return JsonResponse(dict(context))
 
