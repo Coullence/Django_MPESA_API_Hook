@@ -96,9 +96,9 @@ def call_back(request):
 
 
     payment = STKPayment(
-        amount= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Amount']['Value'],
-        phone_number= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][4]['PhoneNumber']['Value'],
-        transaction_code= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][2]['MpesaReceiptNumber']['Value'],
+        amount= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'],
+        phone_number= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'],
+        transaction_code= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][2]['Value'],
 
     )
     payment.save()
