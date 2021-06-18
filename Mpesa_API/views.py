@@ -64,7 +64,6 @@ def call_back(request):
     
     print (mpesa_payment)
     
-    first_name=mpesa_payment['FirstName'],
     
     Amount = mpesa_payment['Amount']
     PhoneNumber = mpesa_payment['PhoneNumber']
