@@ -4,7 +4,7 @@ from requests.auth import HTTPBasicAuth
 import json
 from . mpesa_credentials import MpesaAccessToken, LipanaMpesaPpassword
 from django.views.decorators.csrf import csrf_exempt
-from .models import MpesaPayment
+from .models import MpesaPayment, STKPayment
 
 
 def getAccessToken(request):
@@ -70,9 +70,9 @@ def call_back(request):
     
     # json["items"][0]["links"]["self"] 
     
-    Amount = mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item']['0']['Amount']['Value']
+    # Amount = mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item']['0']['Amount']['Value']
     
-    print ("The Amount".Amount)
+    # print ("The Amount".Amount)
     
     
 #    {'Body': 
@@ -95,19 +95,13 @@ def call_back(request):
 #        }
 
 
-    # payment = MpesaPayment(
-    #     first_name=mpesa_payment['FirstName'],
-    #     last_name=mpesa_payment['LastName'],
-    #     middle_name=mpesa_payment['MiddleName'],
-    #     description=mpesa_payment['TransID'],
-    #     phone_number=mpesa_payment['MSISDN'],
-    #     amount=mpesa_payment['TransAmount'],
-    #     reference=mpesa_payment['BillRefNumber'],
-    #     organization_balance=mpesa_payment['OrgAccountBalance'],
-    #     type=mpesa_payment['TransactionType'],
+    payment = STKPayment(
+        amount= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item']['0']['Amount']['Value'],
+        phone_number= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item']['0']['PhoneNumber']['Value'],
+        transaction_code= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item']['0']['MpesaReceiptNumber']['Value'],
 
-    # )
-    # payment.save()
+    )
+    payment.save()
 
     context = {
         "ResultCode": 0,

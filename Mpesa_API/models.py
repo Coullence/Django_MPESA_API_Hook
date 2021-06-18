@@ -50,3 +50,15 @@ class MpesaPayment(BaseModel):
 
     def __str__(self):
         return self.first_name
+    
+class STKPayment(BaseModel):
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    phone_number = models.TextField()    
+    transaction_Code = models.TextField()
+
+    class Meta:
+        verbose_name = 'STK Payment'
+        verbose_name_plural = 'stk Payments'
+
+    def __str__(self):
+        return self.amount
