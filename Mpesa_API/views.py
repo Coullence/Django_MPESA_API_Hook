@@ -32,7 +32,7 @@ def lipa_na_mpesa_online(request):
         "PartyA": 254726634786,  # replace with your phone number to get stk push
         "PartyB": LipanaMpesaPpassword.Business_short_code,
         "PhoneNumber": 254726634786,  # replace with your phone number to get stk push
-        "CallBackURL": "http://5d41213b93a8.ngrok.io/payments/api/v1/c2b/callback/",
+        "CallBackURL": "https://young-refuge-80064.herokuapp.com/payments/api/v1/c2b/callback/",
         "AccountReference": "Henry",
         "TransactionDesc": "Testing stk push"
     }
