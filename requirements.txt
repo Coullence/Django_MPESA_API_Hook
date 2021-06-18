@@ -10,4 +10,3 @@ coverage==5.2
 python-decouple==3.3
 whitenoise==5.2.0
 python-decouple==3.3
-6a6548f99354aedf9b433d2eabe
