@@ -94,14 +94,20 @@ def call_back(request):
 #            }
 #        }
 
+print ("Hey its here now")
 
-    payment = STKPayment(
-        amount= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'],
-        phone_number= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'],
-        transaction_code= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][2]['Value'],
+print (mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'])
+print (mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value'])
+print (mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'])
 
-    )
-    payment.save()
+
+    # payment = STKPayment(
+    #     amount= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'],
+    #     phone_number= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'],
+    #     transaction_code= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][2]['Value'],
+
+    # )
+    # payment.save()
 
     context = {
         "ResultCode": 0,
