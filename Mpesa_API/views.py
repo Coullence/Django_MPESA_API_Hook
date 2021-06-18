@@ -58,11 +58,33 @@ def register_urls(request):
 @csrf_exempt
 def call_back(request):
     
-    print("call back data called")
+    print("hey its is here ******************************** ")
+    mpesa_body =request.body.decode('utf-8')
+    mpesa_payment = json.loads(mpesa_body)
+    
+    print (mpesa_payment)
+
+    # payment = MpesaPayment(
+    #     first_name=mpesa_payment['FirstName'],
+    #     last_name=mpesa_payment['LastName'],
+    #     middle_name=mpesa_payment['MiddleName'],
+    #     description=mpesa_payment['TransID'],
+    #     phone_number=mpesa_payment['MSISDN'],
+    #     amount=mpesa_payment['TransAmount'],
+    #     reference=mpesa_payment['BillRefNumber'],
+    #     organization_balance=mpesa_payment['OrgAccountBalance'],
+    #     type=mpesa_payment['TransactionType'],
+
+    # )
+    # payment.save()
+
     context = {
         "ResultCode": 0,
         "ResultDesc": "Accepted"
     }
+    
+    print("hey its is here ******************************** ")
+
     return JsonResponse(dict(context))
 
 
