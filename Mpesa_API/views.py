@@ -65,11 +65,14 @@ def call_back(request):
     print (mpesa_payment)
     
     
-    Amount = mpesa_payment['Amount']
-    PhoneNumber = mpesa_payment['PhoneNumber']
+    # Amount = mpesa_payment['Amount']
+    # PhoneNumber = mpesa_payment['PhoneNumber']
+    
+    # json["items"][0]["links"]["self"] 
+    
+    Amount = mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item']['0']['Amount']['Value']
     
     print ("The Amount".Amount)
-    print ("The Phone Number".PhoneNumber)
     
     
 #    {'Body': 
@@ -90,6 +93,7 @@ def call_back(request):
 #                 }
 #            }
 #        }
+
 
     # payment = MpesaPayment(
     #     first_name=mpesa_payment['FirstName'],
