@@ -59,7 +59,7 @@ def register_urls(request):
 def call_back(request):
     
     print("hey its is here ******************************** ")
-    mpesa_body =request.Results.decode('utf-8')
+    mpesa_body =request.body.decode('utf-8')
     mpesa_payment = json.loads(mpesa_body)
     
     
@@ -95,8 +95,7 @@ def call_back(request):
         "ResultDesc": "Accepted"
     }
     
-    print("hey its is here ********************newenneen************ ")
-    
+    print("hey its is here ******************************** ")
     
 
     return JsonResponse(dict(context))
