@@ -62,6 +62,10 @@ def call_back(request):
     mpesa_body =request.body.decode('utf-8')
     mpesa_payment = json.loads(mpesa_body)
     
+    print("=================================================")
+    print(mpesa_payment)
+    print("================================================")
+    
     # Convert the date from integer to date and time
     # get date from the response
     transaction_date = mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value'],
