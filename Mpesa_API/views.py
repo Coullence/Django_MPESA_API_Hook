@@ -5,7 +5,11 @@ import json
 from . mpesa_credentials import MpesaAccessToken, LipanaMpesaPpassword
 from django.views.decorators.csrf import csrf_exempt
 from .models import MpesaPayment, STKPayment
+<<<<<<< HEAD
 from datetime import datetime
+=======
+
+>>>>>>> 17c0a8f0b85077de1abffd6861f1c3a8295c6a91
 
 def getAccessToken(request):
     consumer_key = 'GWN63gFpp6eGAroGw5qd0jMTVji5rMH9'
@@ -62,6 +66,7 @@ def call_back(request):
     mpesa_body =request.body.decode('utf-8')
     mpesa_payment = json.loads(mpesa_body)
     
+<<<<<<< HEAD
     # Convert the date from integer to date and time
     # get date from the response
     transaction_date = mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value'],
@@ -79,6 +84,19 @@ def call_back(request):
         amount = mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'],
         transaction_code= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value'],
         TransactionDate= transaction_datetime,
+=======
+    print (mpesa_payment)  
+    
+    print ("Hey its here now")
+
+    print (mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'])
+    print (mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value'])
+    print (mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'])
+    
+    payment = STKPayment(
+        amount = mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'],
+        transaction_code= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value'],
+>>>>>>> 17c0a8f0b85077de1abffd6861f1c3a8295c6a91
         phone_number= mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'],
 
     )

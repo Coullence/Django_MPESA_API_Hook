@@ -78,7 +78,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
+<<<<<<< HEAD
         'NAME': os.path.join(BASE_DIR, 'db.mpesapay'),
+=======
+        'NAME': os.path.join(BASE_DIR, 'db.mpesa'),
+>>>>>>> 17c0a8f0b85077de1abffd6861f1c3a8295c6a91
     }
 }
 

@@ -52,6 +52,7 @@ class MpesaPayment(BaseModel):
         return self.first_name
     
 class STKPayment(BaseModel):
+<<<<<<< HEAD
     MerchantRequestID = models.TextField(max_length=100)
     CheckoutRequestID = models.TextField(max_length=100)
     ResultDesc = models.TextField(max_length=100)      
@@ -59,6 +60,11 @@ class STKPayment(BaseModel):
     transaction_code = models.TextField(max_length=100)
     TransactionDate = models.DateTimeField(max_length=100)    
     phone_number = models.TextField(max_length=20)    
+=======
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    transaction_code = models.TextField()
+    phone_number = models.TextField()    
+>>>>>>> 17c0a8f0b85077de1abffd6861f1c3a8295c6a91
     
 
     class Meta:
@@ -66,4 +72,8 @@ class STKPayment(BaseModel):
         verbose_name_plural = 'stk Payments'
 
     def __str__(self):
+<<<<<<< HEAD
         return self.phone_number
+=======
+        return self.amount
+>>>>>>> 17c0a8f0b85077de1abffd6861f1c3a8295c6a91
