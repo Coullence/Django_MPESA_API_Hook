@@ -66,14 +66,19 @@ def call_back(request):
     print(mpesa_payment)
     print("================================================")
     
-    # Convert the date from integer to date and time
-    # get date from the response
-    transaction_date = mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value'],
+    # # Convert the date from integer to date and time
+    # # get date from the response
+    # transaction_date = mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value'],
+    
+    # # convert to string
+    # str_transaction_date = str(transaction_date)
+    # # convert to DateTime
+    # transaction_datetime = datetime.strptime(str_transaction_date,"%Y-%m-%dT%H:%M:%S")
     
     # convert to string
-    str_transaction_date = str(transaction_date)
+    str_transaction_date = str(mpesares['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value'])
     # convert to DateTime
-    transaction_datetime = datetime.strptime(str_transaction_date,"%Y-%m-%dT%H:%M:%S")
+    transaction_datetime = datetime.strptime(str_transaction_date, "%Y%m%d%H%M%S")
     
     
     payment = STKPayment(
