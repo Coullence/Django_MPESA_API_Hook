@@ -76,7 +76,7 @@ def call_back(request):
     # transaction_datetime = datetime.strptime(str_transaction_date,"%Y-%m-%dT%H:%M:%S")
     
     # convert to string
-    str_transaction_date = str(mpesares['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value'])
+    str_transaction_date = str(mpesa_payment['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value'])
     # convert to DateTime
     transaction_datetime = datetime.strptime(str_transaction_date, "%Y%m%d%H%M%S")
     
